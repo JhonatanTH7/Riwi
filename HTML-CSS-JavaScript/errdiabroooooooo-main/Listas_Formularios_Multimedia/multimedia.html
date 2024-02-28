@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia</title>
+</head>
+<body>
+    <!--dentro del ref se pone el lugar a redireccionar en este caso la pagina principal, se puede con la direccion o acortandolo con ./ o simplemente . -->
+    <a href="./hipervinculos_multimedia.html">Volver</a> 
+    <center>
+        <h1>Multimedia</h1>
+    </center>
+    <hr>
+    <h2>Importar imagenes</h2>
+    <img 
+    src="./recursos/img/img3.avif" 
+    alt="Imagen perros y gatos" 
+    height="250px" 
+    loading="lazy">
+    <hr>
+    <h2>Importar imagenes externas</h2>
+    <img 
+     src="./recursos/img/img2.avif"
+     alt="Imagen perros y gatos2"
+     height="250px"
+     loading="lazy">
+    <hr>
+    <h2>Importar Gif</h2>
+    <img 
+    src="./recursos/img/giphy.gif"
+    height="250px"
+    alt="Gif"
+    loading="lazy">
+    <hr>
+    <h2>Etiqueta Figure con leyenda</h2>
+    <figure>
+        <img 
+        src="https://scontent.feoh1-1.fna.fbcdn.net/v/t39.30808-6/311408099_412330941092078_6701435605686439434_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=H42VLFlbVsUAX-zAmSB&_nc_ht=scontent.feoh1-1.fna&oh=00_AfBD8C-CMnYGeddGN8HQnUoQua_g-IRIcw1UAQv-VfFHGA&oe=653D769E" 
+        alt="Imagen perros y gatos" 
+        height="250px"
+        loading="lazy">
+        <figcaption>El verdadero Sapoperro</figcaption>
+    </figure>
+    <hr>
+    <h2>Importar Video con controles</h2>
+    <video src="./recursos/img/video.mp4" controls height="250px"></video>
+    <hr>
+    <h2>Importar Video sin sonido con autoplay</h2>
+    <video src="./recursos/img/video.mp4" autoplay muted height="250px"></video>
+    <hr>
+    <h2>Importar Video externo</h2>
+    <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/wJ3o0NYsGP8?si=qFEte3trDf2R0AZN" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen></iframe>
+    <hr>
+    <!--track es para poner los subtitulos-->
+    <h2>Importar Video con subtitulos</h2>
+    <video src="./recursos/img/video.mp4" controls height="250px">
+        <track src="subtitulos_español.vtt" label="Español" kind="subtitles" srclang="es">
+        <track src="subtitulos_ingles.vtt" label="Ingles" kind="subtitles" srclang="en">
+    </video>
+    <hr>
+    <h2>Importar audio </h2>
+    <audio src="./recursos/img/audio.mp3" controls></audio>
+    <hr>
+    <h2>Importar audio con autoplay</h2>
+    <audio src="./recursos/img/audio.mp3" controls autoplay muted loop></audio>
+
+</body>
+</html>

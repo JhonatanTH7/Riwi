@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formularios</title>
+        <style>
+            
+            h1{
+                text-align: center;
+            }
+            body{
+                background: rgb(52, 206, 214);
+                background-image: url(./recursos/img/el_verdadero_sapoperro.jpg);
+                background-size:cover;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+
+                min-height: 400vh
+            }
+        </style>
+    </head>
+    <body>
+        <a href="./hipervinculos_multimedia.html">Volver</a>
+        <h1>Formularios</h1>
+        <hr>
+        <!--accept charset sirve para caracteres especiales, si ya se hizo en la parte superior No es necesario ponerlo nuevamente-->
+        <form action="" accept-charset="UTF-8">
+            <h2>Encuesta</h2>
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" placeholder="ejm: Jhonatan" name="nombre" id="nombre" required>
+            </div><br>
+            <div>
+                <label for="fecha">Fecha de nacimiento</label>
+                <input type="date" name="fecha" id="fecha" required>
+            </div><br>
+            <div>
+                <label for="edad">Edad</label>
+                <input type="number" name="edad" id="edad" required min="0" max="150">
+
+            </div><br>            
+            <fieldset>
+                <!--radio es para que solo se pueda escoger una opción, deben tener el mismo name sino nos permitira seleccionar todas las opciones-->
+                <legend>Otras preguntas</legend>
+                <br><label>Estado civil:</label>
+                <input type="radio" name="estado_civil" id="casado" value="casado">
+                <label for="casado">Casado</label>
+                <input type="radio" name="estado_civil" id="soltero" value="soltero">
+                <label for="soltero">Soltero</label>
+                <input type="radio" name="estado_civil" id="union libre" value="union libre">
+                <label for="union libre">Union Libre</label>
+                <div><br>
+                    <label for="color">Color Favorito</label>
+                    <input type="color" name="color" id="color">
+                </div><br>
+                <div>
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" name="email" id="email" placeholder="ejm@correo.com">
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" id="password">
+                </div><br>
+                <div>
+                    <label for="city">Ciudad</label>
+                    <select name="city" id="city"> 
+                        <option value="med">Medallo city lo mejor mi fafa solo tussi</option>
+                        <option value="cal">Cali es Cali lo demas es loma</option>
+                        <option value="bar">Barranquilla</option>
+                        <option value="buc">Bucaramanga</option>
+                        <option value="per">Pereira</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Descripción</p>
+                    <textarea name="descripcion" id="descripcion" cols="60" rows="10" required></textarea>
+                </div><br>
+                <div>
+                    <input type="url">
+                    <input type="range">
+                    <input type="file" accept=".jpg,.png,.pdf">     
+                    <input type="time">
+                    <input type="datetime-local">   
+                    <input type="checkbox" required id="terminos">
+                    <label for="terminos">Aceptar terminos y condiciones</label>
+                </div>
+            </fieldset>
+            <br><input type="submit" value="Enviar">
+            <!-- otra manera de hacerlo <button type="submit">Enviar</button> -->
+        </form>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas</title>
+    <!--collapse para que no se vea doble linea en la tabla-->
+    <style>
+        table,th,td{
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding: 0 20px;
+            text-align: center;
+        }
+        img{
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <a href="./hipervinculos_multimedia.html">Volver</a>
+    <center>
+        <h1>Tablas</h1>
+    </center>
+    <hr>
+    <h2>Estructura basica de una tabla</h2>
+    <table border="1">
+        <tr>
+            <td>Item 1</td>
+            <td>Item 2</td>
+            <td>Item 3</td>
+            <td>Item 4</td>
+        </tr>
+        <tr>
+            <td>Item 1</td>
+            <td>Item 2</td>
+            <td>Item 3</td>
+            <td>Item 4</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>Estructura de una tabla completa</h2>
+        <table>
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Ciudad</th>
+                <th>Genero</th>
+            </tr>
+            <tr>
+                <td>Jhon</td>
+                <td>21</td>
+                <td>La Estrella</td>
+                <td>M</td>
+            </tr>
+            <tr>
+                <td>Anthony</td>
+                <td>24</td>
+                <td>Medellín</td>
+                <td>M</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td colspan="3">2</td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    <h2>Tabla personalizada</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Animal</th>
+                <th>#</th>
+                <th>Imagen</th>
+                <th>Nombre mascota</th>
+                <th>Video</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td rowspan="3">Perros</td>
+            <tr>
+                <td>1</td>
+                <td> 
+                    <img src="./recursos/img/img5.avif" alt="Imagen mascota" height="50">
+                </td>
+                <td colspan="2">Pluto</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td> 
+                    <img src="./recursos/img/img6.avif" alt="Imagen mascota" height="50">
+                </td>
+                <td>Pluto</td>
+                <td>
+                    <video src="./recursos/img/video.mp4" autoplay muted height="50"></video>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</body>
+</html>
