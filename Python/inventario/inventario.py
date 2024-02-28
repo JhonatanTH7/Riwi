@@ -1,5 +1,5 @@
 #Sistema de inventario para una tienda
-from funciones_inventario import actualizar_producto,agregar_producto,eliminar_producto,mostrar_inventario
+from FuncionesInventario import actualizar_producto,agregar_producto,eliminar_producto,mostrar_inventario
 
 
 def main():
