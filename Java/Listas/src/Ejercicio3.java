@@ -13,16 +13,16 @@ public class Ejercicio3 {
         menu menu = new menu();
         boolean[][] listaAsientos = new boolean[5][10];
         Scanner read = new Scanner(System.in);
-        int option = 0;
+        String option;
         do {
             menu.mostrar();
-            option = read.nextInt();
+            option = read.next();
             switch (option) {
-                case 1:
+                case "1":
                     System.out.println("Ingrese la fila (1-5)");
-                    int fila = read.nextInt();
+                    int fila = read.nextInt() - 1;
                     System.out.println("Ingrese el asiento (1-10)");
-                    int asiento = read.nextInt();
+                    int asiento = read.nextInt() - 1;
                     if (!listaAsientos[fila][asiento]) {
                         listaAsientos[fila][asiento] = true;
                         System.out.println("Asiento reservado correctamente");
@@ -30,17 +30,34 @@ public class Ejercicio3 {
                         System.out.println("Oops! Este asiento ya se encuentra reservado");
                     }
                     break;
-                case 2:
+                case "2":
+                    System.out.println("Ingrese la fila (1-5)");
+                    fila = read.nextInt() - 1;
+                    System.out.println("Ingrese el asiento (1-10)");
+                    asiento = read.nextInt() - 1;
+                    if (listaAsientos[fila][asiento]) {
+                        listaAsientos[fila][asiento] = false;
+                        System.out.println("Reserva de asiento cancelada correctamente");
+                    } else {
+                        System.out.println("Este asiento ya esta libre");
+                    }
+                    break;
+                case "3":
                     System.out.println("Ingrese la fila (1-5)");
                     break;
-                case 3:
-                    System.out.println("Ingrese la fila (1-5)");
-                    break;
-                case 4:
+                case "4":
                     System.out.println("Ingrese la fila (1-5)");
                     break;
             }
-        } while (option != 5);
+            if (!option.equals("5")) {
+                read.nextLine();
+                System.out.println(" ");
+                System.out.println("Presione enter para volver al menú");
+                read.nextLine();
+            }
+        } while (!option.equals("5"));
+
+        System.out.println("Hasta la proxima!");
     }
 
 }

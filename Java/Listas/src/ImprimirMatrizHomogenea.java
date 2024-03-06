@@ -1,4 +1,4 @@
-public class ImprimirMatrices {
+public class ImprimirMatrizHomogenea {
     public static void imprimirMatrizDouble(double[][] matriz) {
         System.out.println(" ");
         for (int i = 0; i < matriz.length; i++) {
