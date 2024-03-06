@@ -1,4 +1,4 @@
-public class Ejercicio2 {
+public class Ejercicio3 {
     public static void main(String[] args) {
 //        3. Sistema de Reservas: Desarrolla un programa para un teatro para gestionar las
 //        reservas de asientos. El teatro tiene 5 filas con 10 asientos cada una. Utiliza un
@@ -8,4 +8,5 @@ public class Ejercicio2 {
 //        - Mostrar los asientos disponibles.
 //        - Contabilizar el total de asientos ocupados y disponibles.
     }
+
 }
