@@ -1,3 +1,7 @@
+package Taller;
+
+import Utilities.ImprimirListas;
+
 import javax.swing.*;
 
 public class Ejercicio1 {
@@ -21,6 +25,4 @@ public class Ejercicio1 {
         JOptionPane.showMessageDialog(null, "El promedio de notas es: " + (acumuladorNotas / (calculadoraPromedios.length)));
         IL.imprimirListaDouble(calculadoraPromedios);
     }
-
-
 }

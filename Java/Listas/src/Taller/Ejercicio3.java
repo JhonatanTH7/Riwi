@@ -1,4 +1,7 @@
-import javax.swing.*;
+package Taller;
+
+import Utilities.ImprimirMatrices;
+
 import java.util.Scanner;
 
 public class Ejercicio3 {
@@ -43,10 +46,21 @@ public class Ejercicio3 {
                     }
                     break;
                 case "3":
-                    System.out.println("Ingrese la fila (1-5)");
+                    ImprimirMatrices IMH = new ImprimirMatrices();
+                    IMH.imprimirMatrizBoolean(listaAsientos);
                     break;
                 case "4":
-                    System.out.println("Ingrese la fila (1-5)");
+                    int ocupados = 0, disponibles = 0;
+                    for (boolean[] filaAsiento : listaAsientos) {
+                        for (boolean disponibilidadAsiento : filaAsiento) {
+                            if (!disponibilidadAsiento) {
+                                disponibles++;
+                            } else {
+                                ocupados++;
+                            }
+                        }
+                    }
+                    System.out.println("Asientos disponibles: " + disponibles + "     Asientos ocupados: " + ocupados);
                     break;
             }
             if (!option.equals("5")) {
@@ -55,9 +69,8 @@ public class Ejercicio3 {
                 System.out.println("Presione enter para volver al menú");
                 read.nextLine();
             }
+            System.out.println("Hasta la proxima!");
         } while (!option.equals("5"));
 
-        System.out.println("Hasta la proxima!");
     }
-
 }
