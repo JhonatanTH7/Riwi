@@ -1,8 +1,8 @@
-package Taller.Ejercicio5;
+package Taller.Exercise5;
 
 import javax.swing.*;
 
-public class menuEjercicio5 {
+public class menuExercise5 {
     public int mostrar() {
 
         return Integer.parseInt(JOptionPane.showInputDialog(null, "=== PlayList ===\n\n" +

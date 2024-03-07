@@ -1,9 +1,9 @@
-package Taller.Ejercicio5;
+package Taller.Exercise5;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class Ejercicio5 {
+public class Exercise5 {
     public static void main(String[] args) {
 //        5. Lista de Reproducción Musical: Imagina que estás creando una aplicación para
 //        gestionar listas de reproducción musicales. Cada canción es representada
@@ -11,7 +11,7 @@ public class Ejercicio5 {
 //          - Añadir y remover canciones de la lista de reproducción.
 //          - Mostrar la canción actual y las siguientes en la lista.
 //          - Saltar a la siguiente canción.
-        menuEjercicio5 menu = new menuEjercicio5();
+        menuExercise5 menu = new menuExercise5();
         ArrayList<String> playList = new ArrayList<>();
         int option = 0;
         int playingSong = 0;

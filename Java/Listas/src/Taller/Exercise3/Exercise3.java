@@ -1,10 +1,10 @@
-package Taller.Ejercicio3;
+package Taller.Exercise3;
 
 import Utilities.ImprimirMatrices;
 
 import java.util.Scanner;
 
-public class Ejercicio3 {
+public class Exercise3 {
     public static void main(String[] args) {
 //      3. Sistema de Reservas: Desarrolla un programa para un teatro para gestionar las
 //      reservas de asientos. El teatro tiene 5 filas con 10 asientos cada una. Utiliza un
@@ -13,7 +13,7 @@ public class Ejercicio3 {
 //      - Reservar y cancelar asientos.
 //      - Mostrar los asientos disponibles.
 //      - Contabilizar el total de asientos ocupados y disponibles.
-        menuEjercicio3 menu = new menuEjercicio3();
+        menuExercise3 menu = new menuExercise3();
         boolean[][] listaAsientos = new boolean[5][10];
         Scanner read = new Scanner(System.in);
         String option;

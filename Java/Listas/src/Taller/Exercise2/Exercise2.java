@@ -1,10 +1,10 @@
-package Taller.Ejercicio2;
+package Taller.Exercise2;
 
 import Utilities.ImprimirListas;
 
 import javax.swing.*;
 
-public class Ejercicio2 {
+public class Exercise2 {
     public static void main(String[] args) {
 //      2. Buscador de Número Mayor y Menor: Utiliza un array de int para almacenar 5
 //      números enteros ingresados por el usuario (puedes usar la clase Scanner para la

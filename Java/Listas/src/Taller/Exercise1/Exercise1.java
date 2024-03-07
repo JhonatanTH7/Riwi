@@ -1,10 +1,10 @@
-package Taller.Ejercicio1;
+package Taller.Exercise1;
 
 import Utilities.ImprimirListas;
 
 import javax.swing.*;
 
-public class Ejercicio1 {
+public class Exercise1 {
     public static void main(String[] args) {
 //      1. Calculadora de Promedios: Escribe un programa que utilice un array de tipo
 //      double para almacenar las calificaciones finales de 10 estudiantes en un curso. El
