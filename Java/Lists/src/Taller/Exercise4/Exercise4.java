@@ -32,7 +32,8 @@ public class Exercise4 {
                         itinerary = add.add(itinerary);
                         break;
                     case 2:
-                        remove.remove();
+                        show.show(itinerary);
+                        remove.remove(itinerary);
                         break;
                     case 3:
                         show.show(itinerary);
