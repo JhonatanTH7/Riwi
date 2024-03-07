@@ -1,6 +1,6 @@
-package Taller;
+package Taller.Ejercicio3;
 
-public class menu {
+public class menuEjercicio3 {
     public void mostrar() {
         System.out.println(" ");
         System.out.println("====== Menú ======");

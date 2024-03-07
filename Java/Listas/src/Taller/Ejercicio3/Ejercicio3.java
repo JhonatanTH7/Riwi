@@ -1,4 +1,4 @@
-package Taller;
+package Taller.Ejercicio3;
 
 import Utilities.ImprimirMatrices;
 
@@ -13,7 +13,7 @@ public class Ejercicio3 {
 //      - Reservar y cancelar asientos.
 //      - Mostrar los asientos disponibles.
 //      - Contabilizar el total de asientos ocupados y disponibles.
-        menu menu = new menu();
+        menuEjercicio3 menu = new menuEjercicio3();
         boolean[][] listaAsientos = new boolean[5][10];
         Scanner read = new Scanner(System.in);
         String option;

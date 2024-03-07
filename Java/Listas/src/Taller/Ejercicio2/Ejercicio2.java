@@ -1,4 +1,4 @@
-package Taller;
+package Taller.Ejercicio2;
 
 import Utilities.ImprimirListas;
 
