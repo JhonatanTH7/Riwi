@@ -9,6 +9,7 @@ public class Main {
             contador++;
         }
         System.out.println(sumaTotal);
+
         //Punto2
         for (int i = 1; i < 11; i++) {
             System.out.println("\n Tablas del " + i);
@@ -16,6 +17,7 @@ public class Main {
                 System.out.println(i + "x" + j + " = " + (i * j) + " ");
             }
         }
+
         //Punto3
         String option;
         double saldo = 0.0;
@@ -74,5 +76,8 @@ public class Main {
             }
         } while (controlMenu);
 
+        //Primos
+        int num = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el número a verificar si es primo"));
+ 
     }
 }
