@@ -1,4 +1,4 @@
-package Taller.Exercise3;
+package Taller.Exercise3.Classes;
 
 public class menuExercise3 {
     public void mostrar() {

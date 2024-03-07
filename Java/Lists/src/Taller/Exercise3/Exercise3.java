@@ -1,5 +1,6 @@
 package Taller.Exercise3;
 
+import Taller.Exercise3.Classes.menuExercise3;
 import Utilities.ImprimirMatrices;
 
 import java.util.Scanner;

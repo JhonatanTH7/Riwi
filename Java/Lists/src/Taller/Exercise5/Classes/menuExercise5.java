@@ -1,4 +1,4 @@
-package Taller.Exercise5;
+package Taller.Exercise5.Classes;
 
 import javax.swing.*;
 
