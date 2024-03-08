@@ -2,7 +2,7 @@ package Taller.Exercise5.Classes;
 
 import javax.swing.*;
 
-public class menuExercise5 {
+public class MenuExercise5 {
     public int mostrar() {
 
         return Integer.parseInt(JOptionPane.showInputDialog(null, "=== PlayList ===\n\n" +

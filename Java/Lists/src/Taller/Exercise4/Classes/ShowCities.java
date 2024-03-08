@@ -1,9 +1,9 @@
-package Taller.Exercise4.classes;
+package Taller.Exercise4.Classes;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class showCities {
+public class ShowCities {
     public void show(ArrayList<String> itinerary) {
         if (itinerary.isEmpty()) {
             JOptionPane.showMessageDialog(null, "El itinerario esta vació");

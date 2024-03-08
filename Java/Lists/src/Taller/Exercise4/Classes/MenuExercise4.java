@@ -1,9 +1,9 @@
-package Taller.Exercise4.classes;
+package Taller.Exercise4.Classes;
 
 import javax.swing.*;
 
 
-public class menuExercise4 {
+public class MenuExercise4 {
     public int mostrar() {
 
         return Integer.parseInt(JOptionPane.showInputDialog(null, "=== Itinerario ===\n\n" +

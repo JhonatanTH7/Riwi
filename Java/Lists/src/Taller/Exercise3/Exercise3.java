@@ -1,6 +1,6 @@
 package Taller.Exercise3;
 
-import Taller.Exercise3.Classes.menuExercise3;
+import Taller.Exercise3.Classes.MenuExercise3;
 import Utilities.ImprimirMatrices;
 
 import java.util.Scanner;
@@ -14,7 +14,7 @@ public class Exercise3 {
 //      - Reservar y cancelar asientos.
 //      - Mostrar los asientos disponibles.
 //      - Contabilizar el total de asientos ocupados y disponibles.
-        menuExercise3 menu = new menuExercise3();
+        MenuExercise3 menu = new MenuExercise3();
         boolean[][] listaAsientos = new boolean[5][10];
         Scanner read = new Scanner(System.in);
         String option;
