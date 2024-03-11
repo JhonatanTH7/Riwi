@@ -1,7 +1,7 @@
-package WorkPOOSecondPart.Exercise1;
+package WorkPOO2.Exercise1;
 
-import WorkPOOSecondPart.Exercise1.Classes.Inventory;
-import WorkPOOSecondPart.Exercise1.Classes.Product;
+import WorkPOO2.Exercise1.Classes.Inventory;
+import WorkPOO2.Exercise1.Classes.Product;
 
 import javax.swing.*;
 

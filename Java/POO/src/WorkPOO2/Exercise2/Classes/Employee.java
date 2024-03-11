@@ -1,4 +1,4 @@
-package WorkPOOSecondPart.Exercise2.Classes;
+package WorkPOO2.Exercise2.Classes;
 
 public class Employee extends Person {
     private double salary;

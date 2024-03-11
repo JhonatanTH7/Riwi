@@ -1,4 +1,4 @@
-package WorkPOOSecondPart.Exercise2.Classes;
+package WorkPOO2.Exercise2.Classes;
 
 public class Person {
     private String name;

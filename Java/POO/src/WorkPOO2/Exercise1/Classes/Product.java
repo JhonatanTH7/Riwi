@@ -1,4 +1,4 @@
-package WorkPOOSecondPart.Exercise1.Classes;
+package WorkPOO2.Exercise1.Classes;
 
 public class Product {
     /*    Clase Producto: Base para todos los productos, con propiedades como id, nombre, y

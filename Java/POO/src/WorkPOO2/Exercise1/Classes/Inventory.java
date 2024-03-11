@@ -1,4 +1,4 @@
-package WorkPOOSecondPart.Exercise1.Classes;
+package WorkPOO2.Exercise1.Classes;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -24,7 +24,6 @@ public class Inventory {
             listToConcat += "ID: " + product.getId() + "\n" +
                     "Name: " + product.getName() + "\n" +
                     "Price: " + product.getPrice() + "\n\n";
-
         }
         JOptionPane.showMessageDialog(null, listToConcat);
     }

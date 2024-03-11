@@ -1,4 +1,4 @@
-package WorkPOOSecondPart.Exercise1.Classes;
+package WorkPOO2.Exercise1.Classes;
 
 public class SpecificProduct extends Product {
     /*    Clase ProductoEspecifico: Hereda de Producto y añade propiedades específicas, como
