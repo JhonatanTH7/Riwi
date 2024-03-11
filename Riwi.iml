@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Java/Ciclos/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Java/Lists/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Java/POO/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java/Cycles/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java/Introduction/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
