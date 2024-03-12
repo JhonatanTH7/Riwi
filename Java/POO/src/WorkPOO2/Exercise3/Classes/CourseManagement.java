@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class CourseManagement {
     private ArrayList<Course> coursesList;
 
-    public CourseManagement(ArrayList<Course> coursesList) {
-        this.coursesList = coursesList;
+    public CourseManagement() {
+        this.coursesList = new ArrayList<>();
     }
 
     public void addCourse() {
@@ -33,7 +33,7 @@ public class CourseManagement {
     }
 
     public ArrayList<Course> getCoursesList() {
-        return coursesList;
+        return this.coursesList;
     }
 
     public void setCoursesList(ArrayList<Course> coursesList) {

@@ -1,5 +1,8 @@
 package WorkPOO2.Exercise3.Classes.Menus;
 
+import WorkPOO2.Exercise3.Classes.CourseManagement;
+import WorkPOO2.Exercise3.Classes.SearchCourseByCode;
+
 import javax.swing.*;
 
 public class OptionsExercise3 {
@@ -30,12 +33,16 @@ public class OptionsExercise3 {
     }
 
     public void optionsCourses(String option) {
+        CourseManagement courseManagement = new CourseManagement();
         switch (option) {
             case "1":
+                courseManagement.addCourse();
                 break;
             case "2":
+                SearchCourseByCode searchCourseByCode = new SearchCourseByCode();
                 break;
             case "3":
+                courseManagement.getCoursesList();
                 break;
             case "4":
                 JOptionPane.showMessageDialog(null, "Going back");
