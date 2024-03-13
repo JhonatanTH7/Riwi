@@ -34,7 +34,7 @@ public class MenusExercise3 {
                                 
                 1.Add a student
                 2.Remove student
-                3.Show course list
+                3.Show students list in a course
                 4.Go back to main menu
                                 
                 Enter an option:

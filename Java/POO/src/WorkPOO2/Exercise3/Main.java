@@ -4,6 +4,8 @@ import WorkPOO2.Exercise3.Classes.Course;
 import WorkPOO2.Exercise3.Classes.Menus.MenusExercise3;
 import WorkPOO2.Exercise3.Classes.Menus.OptionsExercise3;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
 /*        Ejercicio 3: Sistema de Gestión de Cursos
@@ -27,13 +29,5 @@ public class Main {
             option = menu.showMainMenu();
             options.mainOptions(option);
         } while (!option.equals("3"));
-        /*
-         Course course = new Course("124f", "Prueba");
-         course.addStudent();
-         course.addStudent();
-         course.showStudents();
-         course.deleteStudent();
-         course.showStudents();
-        */
     }
 }

@@ -32,18 +32,23 @@ public class CourseManagement {
         return null;
     }
 
+    public void showCourses() {
+        if (this.coursesList.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No courses registered");
+        } else {
+            String concatString = "==== Courses List ====\n\n";
+            for (Course course : this.coursesList) {
+                concatString += "- " + course.toString() + "\n";
+            }
+            JOptionPane.showMessageDialog(null, concatString);
+        }
+    }
+
     public ArrayList<Course> getCoursesList() {
         return this.coursesList;
     }
 
     public void setCoursesList(ArrayList<Course> coursesList) {
         this.coursesList = coursesList;
-    }
-
-    @Override
-    public String toString() {
-        return "CourseManagement{" +
-                "coursesList=" + coursesList +
-                '}';
     }
 }
