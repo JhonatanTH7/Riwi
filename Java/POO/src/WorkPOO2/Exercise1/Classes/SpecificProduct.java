@@ -3,21 +3,21 @@ package WorkPOO2.Exercise1.Classes;
 public class SpecificProduct extends Product {
     /*    Clase ProductoEspecifico: Hereda de Producto y añade propiedades específicas, como
         categoria o marca.*/
-    private String branch;
+    private String brand;
     private String category;
 
-    public SpecificProduct(int id, String name, double price, String category, String branch) {
+    public SpecificProduct(int id, String name, double price, String category, String brand) {
         super(id, name, price);
-        this.branch = branch;
+        this.brand = brand;
         this.category = category;
     }
 
-    public String getBranch() {
-        return branch;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setBranch(String branch) {
-        this.branch = branch;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getCategory() {
@@ -30,9 +30,6 @@ public class SpecificProduct extends Product {
 
     @Override
     public String toString() {
-        return "SpecificProduct{" +
-                "branch='" + branch + '\'' +
-                ", category='" + category + '\'' +
-                '}';
+        return "SpecificProduct{" + "brand='" + brand + '\'' + ", category='" + category + '\'' + '}';
     }
 }

@@ -10,6 +10,15 @@ public class Inventory {
         this.productsList = new ArrayList<>();
     }
 
+
+    public ArrayList<Product> getProductsList() {
+        return productsList;
+    }
+
+    public void setProductsList(ArrayList<Product> productsList) {
+        this.productsList = productsList;
+    }
+
     public void addProduct(Product product) {
         this.productsList.add(product);
     }
@@ -19,13 +28,15 @@ public class Inventory {
     }
 
     public void showProducts() {
-        String listToConcat = "";
-        for (Product product : this.productsList) {
-            listToConcat += "ID: " + product.getId() + "\n" +
-                    "Name: " + product.getName() + "\n" +
-                    "Price: " + product.getPrice() + "\n\n";
+        if (this.productsList.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "The inventory is empty");
+        } else {
+            String listToConcat = "======== Inventory ========\n\n";
+            for (Product product : this.productsList) {
+                listToConcat += "ID: " + product.getId() + " Name: " + product.getName() + " Price: " + product.getPrice() + " Branch: " + product.getBrand() + " Category: " + product.getCategory() + "\n";
+            }
+            JOptionPane.showMessageDialog(null, listToConcat);
         }
-        JOptionPane.showMessageDialog(null, listToConcat);
     }
 
     public Product searchByName(String searchedName) {

@@ -1,6 +1,6 @@
 package WorkPOO2.Exercise1.Classes;
 
-public class Product {
+public abstract class Product {
     /*    Clase Producto: Base para todos los productos, con propiedades como id, nombre, y
         precio. Implementa getters y setters para aplicar el encapsulamiento.*/
     private int id;
@@ -36,6 +36,10 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public abstract String getCategory();
+
+    public abstract String getBrand();
 
     @Override
     public String toString() {

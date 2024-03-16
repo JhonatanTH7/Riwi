@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.util.Objects;
 
 public class OptionsExercise3 {
-    protected static CourseManagement courseManagement = new CourseManagement();
+    public CourseManagement courseManagement = new CourseManagement();
 
     public void mainOptions(String option) {
         MenusExercise3 menu = new MenusExercise3();

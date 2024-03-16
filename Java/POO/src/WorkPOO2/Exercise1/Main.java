@@ -1,6 +1,8 @@
 package WorkPOO2.Exercise1;
 
 import WorkPOO2.Exercise1.Classes.Inventory;
+import WorkPOO2.Exercise1.Classes.Menus.MenuExercise1;
+import WorkPOO2.Exercise1.Classes.Menus.OptionsExercise1;
 import WorkPOO2.Exercise1.Classes.Product;
 
 import javax.swing.*;
@@ -22,20 +24,12 @@ public class Main {
                 Clase Inventario: Utiliza un ArrayList de objetos Producto para gestionar el inventario.
         Implementa métodos para añadir, eliminar, y listar productos, además de buscar productos
         por nombre o categoría.*/
-        Inventory objInventory = new Inventory();
-
-        JOptionPane.showMessageDialog(null, "Products list");
-        Product product1 = new Product(0, "Pencil", 2000);
-        Product product2 = new Product(1, "Eraser", 800);
-        Product product3 = new Product(2, "ErasableProduct", 0);
-        objInventory.addProduct(product1);
-        objInventory.addProduct(product2);
-        objInventory.addProduct(product3);
-        objInventory.showProducts();
-        objInventory.deleteProduct(2);
-        JOptionPane.showMessageDialog(null, "After deleting");
-        objInventory.showProducts();
-        JOptionPane.showMessageDialog(null, "After filtering by name");
-        JOptionPane.showMessageDialog(null, objInventory.searchByName("Pencil"));
+        MenuExercise1 menu = new MenuExercise1();
+        OptionsExercise1 options = new OptionsExercise1();
+        String option;
+        do {
+            option = menu.showMenu();
+            options.mainOptions(option);
+        } while (!option.equals("5"));
     }
 }
