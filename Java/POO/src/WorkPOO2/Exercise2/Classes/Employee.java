@@ -1,6 +1,6 @@
 package WorkPOO2.Exercise2.Classes;
 
-public class Employee extends Person {
+public abstract class Employee extends Person {
     private double salary;
     private int idEmployee;
 
@@ -8,6 +8,7 @@ public class Employee extends Person {
         super(name, age, CC);
         this.idEmployee = idEmployee;
         this.salary = salary;
+
     }
 
     public double getSalary() {
@@ -25,6 +26,9 @@ public class Employee extends Person {
     public void setIdEmployee(int idEmployee) {
         this.idEmployee = idEmployee;
     }
+
+
+    public abstract String getType();
 
     @Override
     public String toString() {

@@ -74,7 +74,7 @@ public class EmployeeManagement {
     public void showEmployees() {
         String concatList = "===== Employees list =====\n\n";
         for (Employee employee : EmployeesList) {
-            concatList += "- ID:" + employee.getIdEmployee() + " Name: " + employee.getName() + " CC: " + employee.getCC() + " Salary: " + employee.getSalary() + " Age: " + employee.getAge() + "\n";
+            concatList += "- ID:" + employee.getIdEmployee() + " Name: " + employee.getName() + " CC: " + employee.getCC() + " Salary: " + employee.getSalary() + " Age: " + employee.getAge() + " Tpe: " + employee.getType() + "\n";
             ;
         }
         JOptionPane.showMessageDialog(null, concatList);
