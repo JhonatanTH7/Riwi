@@ -1,4 +1,4 @@
-package Java.entity;
+package Introduction.entity;
 
 public class Coder {
     private int id;

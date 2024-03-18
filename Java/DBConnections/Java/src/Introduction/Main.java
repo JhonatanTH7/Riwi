@@ -1,6 +1,6 @@
-package Java;
+package Introduction;
 
-import Java.database.ConfigDB;
+import Introduction.database.ConfigDB;
 
 public class Main {
     public static void main(String[] args) {
