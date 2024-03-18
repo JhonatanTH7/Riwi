@@ -1,3 +1,5 @@
+package introduction;
+
 import javax.swing.*;
 
 public class Main {
@@ -78,6 +80,6 @@ public class Main {
 
         //Primos
         int num = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el número a verificar si es primo"));
- 
+
     }
 }
