@@ -30,6 +30,8 @@ public class Main {
                     objCoderController.getAll();
                     break;
                 case "2":
+                    //Add Coder
+                    objCoderController.create();
                     break;
                 case "3":
                     break;

@@ -27,6 +27,7 @@ public class ConfigDB {
         try {
             if (objConnection != null) {
                 objConnection.close();
+                System.out.println("DB connection closed");
             }
         } catch (SQLException e) {
             System.out.println("ERROR: " + e.getMessage());

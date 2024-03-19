@@ -28,4 +28,16 @@ public class CoderController {
         //Imprimimos la lista
         JOptionPane.showMessageDialog(null, list);
     }
+
+    public void create() {
+        Coder objCoder = new Coder();
+        String name = JOptionPane.showInputDialog(null, "Enter the Coder's name");
+        int age = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the Coder's age"));
+        String clan = JOptionPane.showInputDialog(null, "Enter the clan you want to add the Coder to");
+        objCoder.setName(name);
+        objCoder.setAge(age);
+        objCoder.setClan(clan);
+        objCoder = (Coder) this.objCoderModel.insert(objCoder);
+        JOptionPane.showMessageDialog(null, objCoder.toString());
+    }
 }
