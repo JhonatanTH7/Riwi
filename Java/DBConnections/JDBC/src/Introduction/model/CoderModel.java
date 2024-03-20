@@ -61,6 +61,35 @@ public class CoderModel implements CRUD {
 
     @Override
     public boolean delete(Object object) {
+        //1. Convertir el objeto a la entidad
+        Coder objCoder = (Coder) object;
+
+        //2. Variable booleana para medir el estado de la eliminación
+        boolean isDeleted = false;
+
+        //3. Abrir la conexión
+        Connection objConnection = ConfigDB.openConnection();
+
+        try {
+            //4. Escribir la sentencia SQL
+            String sql = "DELETE FROM coder WHERE  id = ?;";
+
+            //5. Preparamos el statement
+            PreparedStatement objPrepare = objConnection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+
+            //6. Asignamos el valor al ?
+            objPrepare.setInt(1, objCoder.getId());
+
+            //7. ExecuteUpdate devuelve la cantidad filas afectadas por la sentencia SQL ejecutada.
+
+            int totalAffectedRows = objPrepare.executeUpdate();
+
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        //8. Cerrar la conexión
+        ConfigDB.closeConnection();
         return false;
     }
 
@@ -98,7 +127,7 @@ public class CoderModel implements CRUD {
                 codersList.add(objCoder);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Data acquisition error");
+            JOptionPane.showMessageDialog(null, "Data acquisition error " + e.getMessage());
         }
 
         //7. Cerramos la conexión
@@ -110,6 +139,72 @@ public class CoderModel implements CRUD {
 
     @Override
     public Object findById(int id) {
-        return null;
+        //1. Abrir conexión
+        Connection objConnection = ConfigDB.openConnection();
+        Coder objCoder = null;
+        try {
+            //2. Sentencia SQL
+            String sql = "SELECT * FROM coder WHERE id = ?;";
+
+            //3. Preparar el statement
+            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+
+            //4. Damos valor al ?
+            objPreparedStatement.setInt(1, id);
+
+            //5. Ejecutamos el Query
+            ResultSet objResult = objPreparedStatement.executeQuery();
+
+            //6. Mientras haya un registro siguiente
+            while (objResult.next()) {
+                objCoder = new Coder();
+                objCoder.setId(objResult.getInt("id"));
+                objCoder.setName(objResult.getString("name"));
+                objCoder.setClan(objResult.getString("clan"));
+                objCoder.setAge(objResult.getInt("age"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+        //7. Cerrar la conexión
+        ConfigDB.closeConnection();
+        return objCoder;
+    }
+
+    public ArrayList<Coder> findByName(String name) {
+        //1. Abrir conexión
+        Connection objConnection = ConfigDB.openConnection();
+        Coder objCoder = null;
+
+        //2. Crear sentencia SQL
+        String sql = "SELECT * FROM coder WHERE coder.name LIKE ?;";
+        ArrayList<Coder> codersList = new ArrayList<>();
+        try {
+            //3. Preparar el statement
+            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+
+            //4. Damos valor a ?
+            objPreparedStatement.setString(1, "%" + name + "%");
+
+            //5. Ejecutamos el Query
+            ResultSet objResult = objPreparedStatement.executeQuery();
+
+            //6. Damos valores
+            while (objResult.next()) {
+                objCoder = new Coder();
+                objCoder.setId(objResult.getInt("id"));
+                objCoder.setName(objResult.getString("name"));
+                objCoder.setAge(objResult.getInt("age"));
+                objCoder.setClan(objResult.getString("clan"));
+                codersList.add(objCoder);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+        //7. Cerrar conexión
+        ConfigDB.closeConnection();
+        return codersList;
     }
 }

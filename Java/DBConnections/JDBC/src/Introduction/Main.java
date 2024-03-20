@@ -36,8 +36,10 @@ public class Main {
                 case "3":
                     break;
                 case "4":
+                    objCoderController.delete();
                     break;
                 case "5":
+                    objCoderController.getByName();
                     break;
                 case "6":
                     JOptionPane.showMessageDialog(null, "See you next time!!!");

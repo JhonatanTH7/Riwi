@@ -10,9 +10,11 @@ CREATE TABLE coder (
 )
 
 INSERT INTO coder(name,age,clan)VALUES("Jhonatan Toro Hurtado",21,"Meta"),
-("Ana Maria Restrepo Quintero",27,"Meta");
+("Ana Maria Restrepo Quintero",27,"Meta"),("Prueba Pepito Perez",20,"Lovelace");
 
 SELECT 
     *
 FROM
     coder;
+    
+DROP TABLE coder;
