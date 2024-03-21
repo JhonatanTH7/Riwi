@@ -34,11 +34,15 @@ public class Main {
                     objCoderController.create();
                     break;
                 case "3":
+                    //Update Coder
+                    objCoderController.update();
                     break;
                 case "4":
+                    //Delete Coder
                     objCoderController.delete();
                     break;
                 case "5":
+                    //Filter Coder by name
                     objCoderController.getByName();
                     break;
                 case "6":

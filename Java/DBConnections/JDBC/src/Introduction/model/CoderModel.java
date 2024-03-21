@@ -6,10 +6,7 @@ import Introduction.entity.Coder;
 import com.sun.source.tree.WhileLoopTree;
 
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +53,39 @@ public class CoderModel implements CRUD {
 
     @Override
     public boolean update(Object object) {
-        return false;
+        //1. Abrir conexión
+        Connection objConnection = ConfigDB.openConnection();
+
+        //2. Convertir el objeto
+        Coder objCoder = (Coder) object;
+
+        //3. Creamos la sentencia
+        String sql = "UPDATE coder SET name=?,age=?,clan=? WHERE id=?";
+
+        //Variable bandera para saber si se actualizó
+        boolean idIsUpdated = false;
+        try {
+            //4. Preparamos el statement
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+
+            //5. Dar valor a los ?
+            objPreparedStatement.setString(1, objCoder.getName());
+            objPreparedStatement.setInt(2, objCoder.getAge());
+            objPreparedStatement.setString(3, objCoder.getClan());
+            objPreparedStatement.setInt(4, objCoder.getId());
+
+            //6. Ejecutar el Query
+            idIsUpdated = objPreparedStatement.execute();
+            if (idIsUpdated) {
+                JOptionPane.showMessageDialog(null, "Updated successfully");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+        //7. Cerrar la conexión
+        ConfigDB.closeConnection();
+        return idIsUpdated;
     }
 
     @Override
