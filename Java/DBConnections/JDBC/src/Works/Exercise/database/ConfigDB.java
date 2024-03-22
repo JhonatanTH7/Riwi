@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConfigDB {
     static Connection objConnection = null;
 
-    public Connection openConnection() {
+    public static Connection openConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://br9t0eyu1xjgshu5koum-mysql.services.clever-cloud.com:3306/br9t0eyu1xjgshu5koum";
@@ -23,7 +23,7 @@ public class ConfigDB {
         return objConnection;
     }
 
-    public void closeConnection() {
+    public static void closeConnection() {
         try {
             if (objConnection != null) {
                 objConnection.close();

@@ -1,16 +1,17 @@
-CREATE TABLE authors(
-	id int PRIMARY KEY AUTO_INCREMENT,
-    name varchar(40) NOT NULL,
-    nationality varchar(50) NOT NULL
+CREATE TABLE authors (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(40) NOT NULL,
+    nationality VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE books(
-	id int PRIMARY KEY AUTO_INCREMENT,
-    title varchar(80) NOT NULL,
+CREATE TABLE books (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(80) NOT NULL,
     year_publication DATE NOT NULL,
     price DOUBLE NOT NULL,
-    id_author int NOT NULL,
-    FOREIGN KEY (id_author) REFERENCES authors(id)
+    id_author INT NOT NULL,
+    FOREIGN KEY (id_author)
+        REFERENCES authors (id)
 );
 
 INSERT INTO authors (name, nationality) VALUES
@@ -77,7 +78,13 @@ INSERT INTO books (title, year_publication, price, id_author) VALUES
 ('El astillero', '1961-01-01', 19.50, 29),
 ('Adán Buenosayres', '1948-01-01', 16.75, 30);
 
-SELECT * FROM authors;
-SELECT * FROM books;
+SELECT 
+    *
+FROM
+    authors;
+SELECT 
+    *
+FROM
+    books;
 DROP TABLE authors;
 DROP TABLE books;
