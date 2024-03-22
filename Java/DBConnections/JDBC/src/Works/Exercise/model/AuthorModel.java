@@ -54,7 +54,8 @@ public class AuthorModel implements CRUD {
             PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
             objPreparedStatement.setInt(1, objAuthor.getId());
             isDeleted = objPreparedStatement.execute();
-            if (isDeleted) {
+            System.out.println(isDeleted);
+            if (!isDeleted) {
                 JOptionPane.showMessageDialog(null, "Author deleted successfully");
             } else {
                 JOptionPane.showMessageDialog(null, "Couldn't delete the Author");
