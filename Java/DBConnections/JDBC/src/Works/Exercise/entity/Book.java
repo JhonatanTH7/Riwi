@@ -2,10 +2,10 @@ package Works.Exercise.entity;
 
 import java.util.Date;
 
-public class Book extends Author {
+public class Book {
     private int id;
     private String title;
-    private Date releaseDate;
+    private int publicationYear;
     private double price;
 
     private int idAuthor;
@@ -13,10 +13,10 @@ public class Book extends Author {
     public Book() {
     }
 
-    public Book(int id, String title, Date releaseDate, double price, int idAuthor) {
+    public Book(int id, String title, int publicationYear, double price, int idAuthor) {
         this.id = id;
         this.title = title;
-        this.releaseDate = releaseDate;
+        this.publicationYear = publicationYear;
         this.price = price;
         this.idAuthor = idAuthor;
     }
@@ -37,12 +37,12 @@ public class Book extends Author {
         this.title = title;
     }
 
-    public Date getReleaseDate() {
-        return releaseDate;
+    public int getPublicationYear() {
+        return publicationYear;
     }
 
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
     public double getPrice() {
@@ -63,6 +63,12 @@ public class Book extends Author {
 
     @Override
     public String toString() {
-        return "Book{" + "id=" + id + ", title='" + title + '\'' + ", releaseDate=" + releaseDate + ", price=" + price + '}';
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", publicationYear=" + publicationYear +
+                ", price=" + price +
+                ", idAuthor=" + idAuthor +
+                '}';
     }
 }
