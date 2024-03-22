@@ -18,8 +18,8 @@ public class AuthorModel implements CRUD {
     @Override
     public Object insert(Object object) {
         Connection objConnection = ConfigDB.openConnection();
-        Author objAuthor = new Author();
-        String sql = "INSERT INTO authors(name,nationality)VALUES(?,?)";
+        Author objAuthor = (Author) object;
+        String sql = "INSERT INTO authors(name,nationality)VALUES(?,?);";
         try {
             PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql,
                     PreparedStatement.RETURN_GENERATED_KEYS);
@@ -46,8 +46,24 @@ public class AuthorModel implements CRUD {
 
     @Override
     public boolean delete(Object object) {
-        return false;
-
+        Author objAuthor = (Author) object;
+        Connection objConnection = ConfigDB.openConnection();
+        String sql = "DELETE FROM authors WHERE authors.id = ?;";
+        boolean isDeleted = false;
+        try {
+            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+            objPreparedStatement.setInt(1, objAuthor.getId());
+            isDeleted = objPreparedStatement.execute();
+            if (isDeleted) {
+                JOptionPane.showMessageDialog(null, "Author deleted successfully");
+            } else {
+                JOptionPane.showMessageDialog(null, "Couldn't delete the Author");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        ConfigDB.closeConnection();
+        return isDeleted;
     }
 
     @Override
@@ -74,6 +90,23 @@ public class AuthorModel implements CRUD {
 
     @Override
     public Object findById(int id) {
-        return 0;
+        Author objAuthor = null;
+        Connection objConnection = ConfigDB.openConnection();
+        String sql = "SELECT * FROM authors WHERE authors.id = ?;";
+        try {
+            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+            objPreparedStatement.setInt(1, id);
+            ResultSet objResultSet = objPreparedStatement.executeQuery();
+            while (objResultSet.next()) {
+                objAuthor = new Author();
+                objAuthor.setId(objResultSet.getInt("id"));
+                objAuthor.setName(objResultSet.getString("name"));
+                objAuthor.setNationality(objResultSet.getString("nationality"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        ConfigDB.closeConnection();
+        return objAuthor;
     }
 }

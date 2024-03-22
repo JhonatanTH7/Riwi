@@ -16,12 +16,29 @@ public class AuthorController {
 
     public void create() {
         Author objAuthor = new Author();
-        String name = JOptionPane.showInputDialog(null, "");
-        String nationality = JOptionPane.showInputDialog(null, "");
+        String name = JOptionPane.showInputDialog(null, "Enter Author's name");
+        String nationality = JOptionPane.showInputDialog(null, "Enter Author's nationality");
         objAuthor.setName(name);
         objAuthor.setNationality(nationality);
         objAuthor = (Author) this.objAuthorModel.insert(objAuthor);
         JOptionPane.showMessageDialog(null, objAuthor.toString());
+    }
+
+    public void delete() {
+        String list = this.getAll(this.objAuthorModel.findAll());
+        int confirm = 1;
+        int idDelete = Integer.parseInt(JOptionPane.showInputDialog(null, list + "\n Enter the ID of the Author you want to delete: "));
+        Author objAuthorDelete = (Author) this.objAuthorModel.findById(idDelete);
+        if (objAuthorDelete == null) {
+            JOptionPane.showMessageDialog(null, "Author not found");
+        } else {
+            confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Author: " + objAuthorDelete.getName());
+            if (confirm == 0) {
+                this.objAuthorModel.delete(objAuthorDelete);
+            } else {
+                JOptionPane.showMessageDialog(null, "No Author was deleted");
+            }
+        }
     }
 
     public void getAll() {
