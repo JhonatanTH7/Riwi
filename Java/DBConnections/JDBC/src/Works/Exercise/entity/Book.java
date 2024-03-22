@@ -2,20 +2,23 @@ package Works.Exercise.entity;
 
 import java.util.Date;
 
-public class Book {
+public class Book extends Author {
     private int id;
-    private String name;
+    private String title;
     private Date releaseDate;
     private double price;
+
+    private int idAuthor;
 
     public Book() {
     }
 
-    public Book(int id, String name, Date releaseDate, double price) {
+    public Book(int id, String title, Date releaseDate, double price, int idAuthor) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.releaseDate = releaseDate;
         this.price = price;
+        this.idAuthor = idAuthor;
     }
 
     public int getId() {
@@ -26,12 +29,12 @@ public class Book {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Date getReleaseDate() {
@@ -50,8 +53,16 @@ public class Book {
         this.price = price;
     }
 
+    public int getIdAuthor() {
+        return idAuthor;
+    }
+
+    public void setIdAuthor(int idAuthor) {
+        this.idAuthor = idAuthor;
+    }
+
     @Override
     public String toString() {
-        return "Book{" + "id=" + id + ", name='" + name + '\'' + ", releaseDate=" + releaseDate + ", price=" + price + '}';
+        return "Book{" + "id=" + id + ", title='" + title + '\'' + ", releaseDate=" + releaseDate + ", price=" + price + '}';
     }
 }

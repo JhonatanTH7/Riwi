@@ -30,10 +30,14 @@ public class Menus {
                 case "2":
                     authorController.create();
                     break;
+                case "3":
+                    authorController.update();
+                    break;
                 case "4":
                     authorController.delete();
                     break;
                 case "5":
+                    authorController.getById();
                     break;
                 case "6":
                     JOptionPane.showMessageDialog(null, "Going back to main menu");

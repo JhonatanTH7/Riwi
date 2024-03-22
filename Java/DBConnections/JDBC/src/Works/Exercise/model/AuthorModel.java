@@ -41,7 +41,28 @@ public class AuthorModel implements CRUD {
 
     @Override
     public boolean update(Object object) {
-        return false;
+        Connection objConnection = ConfigDB.openConnection();
+        Author objAuthor = (Author) object;
+        String sql = "UPDATE authors SET name=?,nationality=? WHERE id=?;";
+        boolean isUpdated = false;
+        try {
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql);
+            objPreparedStatement.setString(1, objAuthor.getName());
+            objPreparedStatement.setString(2, objAuthor.getNationality());
+            objPreparedStatement.setInt(3, objAuthor.getId());
+
+            int rowsAffected = objPreparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Updated successfully");
+                isUpdated = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Couldn't update the Author");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        ConfigDB.closeConnection();
+        return isUpdated;
     }
 
     @Override
@@ -53,10 +74,10 @@ public class AuthorModel implements CRUD {
         try {
             PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
             objPreparedStatement.setInt(1, objAuthor.getId());
-            isDeleted = objPreparedStatement.execute();
-            System.out.println(isDeleted);
-            if (!isDeleted) {
+            int rowsAffected = objPreparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Author deleted successfully");
+                isDeleted = true;
             } else {
                 JOptionPane.showMessageDialog(null, "Couldn't delete the Author");
             }

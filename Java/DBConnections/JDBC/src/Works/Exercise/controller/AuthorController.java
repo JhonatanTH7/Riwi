@@ -24,9 +24,24 @@ public class AuthorController {
         JOptionPane.showMessageDialog(null, objAuthor.toString());
     }
 
+    public void update() {
+        String list = this.getAll(this.objAuthorModel.findAll());
+        int idUpdate = Integer.parseInt(JOptionPane.showInputDialog(null, list + "\n Enter the ID of the Author you want to update"));
+        Author objAuthorUpdate = (Author) this.objAuthorModel.findById(idUpdate);
+        if (objAuthorUpdate == null) {
+            JOptionPane.showMessageDialog(null, "Author not found");
+        } else {
+            String name = JOptionPane.showInputDialog(null, "Enter the new name", objAuthorUpdate.getName());
+            String nationality = JOptionPane.showInputDialog(null, "Enter the new Nationality", objAuthorUpdate.getNationality());
+            objAuthorUpdate.setName(name);
+            objAuthorUpdate.setNationality(nationality);
+            this.objAuthorModel.update(objAuthorUpdate);
+        }
+    }
+
     public void delete() {
         String list = this.getAll(this.objAuthorModel.findAll());
-        int confirm = 1;
+        int confirm;
         int idDelete = Integer.parseInt(JOptionPane.showInputDialog(null, list + "\n Enter the ID of the Author you want to delete: "));
         Author objAuthorDelete = (Author) this.objAuthorModel.findById(idDelete);
         if (objAuthorDelete == null) {
@@ -38,6 +53,16 @@ public class AuthorController {
             } else {
                 JOptionPane.showMessageDialog(null, "No Author was deleted");
             }
+        }
+    }
+
+    public void getById() {
+        int idSearched = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the ID of the Author you are searching for"));
+        Author objAuthor = (Author) this.objAuthorModel.findById(idSearched);
+        if (objAuthor == null) {
+            JOptionPane.showMessageDialog(null, "Author not found");
+        } else {
+            JOptionPane.showMessageDialog(null, "Author with ID-> " + idSearched + " = Name: " + objAuthor.getName() + " Nationality: " + objAuthor.getNationality());
         }
     }
 
