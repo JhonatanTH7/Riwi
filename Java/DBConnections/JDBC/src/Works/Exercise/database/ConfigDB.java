@@ -1,4 +1,4 @@
-package Works.Exercise1.database;
+package Works.Exercise.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,6 +27,7 @@ public class ConfigDB {
         try {
             if (objConnection != null) {
                 objConnection.close();
+                System.out.println("DB connection closed");
             }
         } catch (SQLException e) {
             System.out.println("Error >> " + e.getMessage());

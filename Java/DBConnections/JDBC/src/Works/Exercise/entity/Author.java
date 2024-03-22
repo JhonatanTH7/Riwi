@@ -1,4 +1,4 @@
-package Works.Exercise1.entity;
+package Works.Exercise.entity;
 
 public class Author {
     private int id;

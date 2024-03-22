@@ -1,6 +1,6 @@
-package Works.Exercise1;
+package Works.Exercise;
 
-import Works.Exercise1.database.ConfigDB;
+import Works.Exercise.database.ConfigDB;
 
 public class Main {
     public static void main(String[] args) {
