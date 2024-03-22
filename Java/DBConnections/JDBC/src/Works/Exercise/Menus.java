@@ -3,6 +3,7 @@ package Works.Exercise;
 import javax.swing.JOptionPane;
 
 import Works.Exercise.controller.AuthorController;
+import Works.Exercise.controller.BookController;
 
 public class Menus {
     public void authorMenu() {
@@ -50,6 +51,7 @@ public class Menus {
     }
 
     public void bookMenu() {
+        BookController objBookController = new BookController();
         String option2 = "";
         do {
             option2 = JOptionPane.showInputDialog(null, """
@@ -70,6 +72,13 @@ public class Menus {
                     """);
             switch (option2) {
                 case "1":
+                    objBookController.getAll();
+                    break;
+                case "2":
+                    objBookController.create();
+                    break;
+                case "7":
+                    objBookController.getByName();
                     break;
                 case "8":
                     JOptionPane.showMessageDialog(null, "Going back to main menu");

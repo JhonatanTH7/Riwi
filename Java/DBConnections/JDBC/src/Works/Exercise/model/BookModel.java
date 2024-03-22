@@ -17,7 +17,27 @@ public class BookModel implements CRUD {
 
     @Override
     public Object insert(Object object) {
-        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+        Connection objConnection = ConfigDB.openConnection();
+        Book objBook = (Book) object;
+        String sql = "INSERT INTO books(title, publicationYear, price, idAuthor)VALUES(?,?,?,?);";
+        try {
+            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            objPreparedStatement.setString(1, objBook.getTitle());
+            objPreparedStatement.setInt(2, objBook.getPublicationYear());
+            objPreparedStatement.setDouble(3, objBook.getPrice());
+            objPreparedStatement.setInt(4, objBook.getIdAuthor());
+            objPreparedStatement.execute();
+            ResultSet objResultSet = objPreparedStatement.getGeneratedKeys();
+            while (objResultSet.next()) {
+                objBook.setId(objResultSet.getInt(1));
+            }
+            objPreparedStatement.close();
+            JOptionPane.showMessageDialog(null, "Book added successfully");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        ConfigDB.closeConnection();
+        return objBook;
     }
 
     @Override
@@ -62,7 +82,7 @@ public class BookModel implements CRUD {
     public ArrayList<Book> findByName(String name) {
         Connection objConnection = ConfigDB.openConnection();
         Book objBook = null;
-        String sql = "SELECT * FROM books WHERE books.name LIKE ?;";
+        String sql = "SELECT * FROM books WHERE books.title LIKE ?;";
         ArrayList<Book> booksList = new ArrayList<>();
         try {
             PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
