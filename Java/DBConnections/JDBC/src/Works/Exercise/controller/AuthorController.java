@@ -14,6 +14,16 @@ public class AuthorController {
         this.objAuthorModel = new AuthorModel();
     }
 
+    public void create() {
+        Author objAuthor = new Author();
+        String name = JOptionPane.showInputDialog(null, "");
+        String nationality = JOptionPane.showInputDialog(null, "");
+        objAuthor.setName(name);
+        objAuthor.setNationality(nationality);
+        objAuthor = (Author) this.objAuthorModel.insert(objAuthor);
+        JOptionPane.showMessageDialog(null, objAuthor.toString());
+    }
+
     public void getAll() {
         String list = this.getAll(this.objAuthorModel.findAll());
         JOptionPane.showMessageDialog(null, list);
