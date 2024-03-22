@@ -32,7 +32,26 @@ public class BookModel implements CRUD {
 
     @Override
     public List<Object> findAll() {
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        Connection objConnection = ConfigDB.openConnection();
+        List<Object> booksList = new ArrayList<>();
+        String sql = "SELECT * FROM books ORDER BY books.id ASC;";
+        try {
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql);
+            ResultSet objResultSet = (ResultSet) objPreparedStatement.executeQuery();
+            while (objResultSet.next()) {
+                Book objBook = new Book();
+                objBook.setId(objResultSet.getInt("id"));
+                objBook.setTitle(objResultSet.getString("title"));
+                objBook.setPublicationYear(objResultSet.getInt("publicationYear"));
+                objBook.setPrice(objResultSet.getDouble("price"));
+                objBook.setIdAuthor(objResultSet.getInt("idAuthor"));
+                booksList.add(objBook);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        ConfigDB.closeConnection();
+        return booksList;
     }
 
     @Override
@@ -44,25 +63,25 @@ public class BookModel implements CRUD {
         Connection objConnection = ConfigDB.openConnection();
         Book objBook = null;
         String sql = "SELECT * FROM books WHERE books.name LIKE ?;";
-        ArrayList<Book> codersList = new ArrayList<>();
+        ArrayList<Book> booksList = new ArrayList<>();
         try {
             PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
             objPreparedStatement.setString(1, "%" + name + "%");
-            ResultSet objResult = objPreparedStatement.executeQuery();
-            while (objResult.next()) {
+            ResultSet objResultSet = objPreparedStatement.executeQuery();
+            while (objResultSet.next()) {
                 objBook = new Book();
-                objBook.setId(objResult.getInt("id"));
-                objBook.setTitle(objResult.getString("name"));
-                objBook.setPublicationYear(objResult.getInt("publicationYear"));
-                objBook.setPrice(objResult.getDouble("price"));
-                codersList.add(objBook);
+                objBook.setId(objResultSet.getInt("id"));
+                objBook.setTitle(objResultSet.getString("title"));
+                objBook.setPublicationYear(objResultSet.getInt("publicationYear"));
+                objBook.setPrice(objResultSet.getDouble("price"));
+                objBook.setIdAuthor(objResultSet.getInt("idAuthor"));
+                booksList.add(objBook);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
-        // 7. Cerrar conexión
         ConfigDB.closeConnection();
-        return codersList;
+        return booksList;
     }
 }
