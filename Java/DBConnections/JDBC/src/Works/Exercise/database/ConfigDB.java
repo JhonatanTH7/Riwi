@@ -10,9 +10,9 @@ public class ConfigDB {
     public Connection openConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/";
-            String user = "root";
-            String password = "Rlwl2023.";
+            String url = "jdbc:mysql://br9t0eyu1xjgshu5koum-mysql.services.clever-cloud.com:3306/br9t0eyu1xjgshu5koum";
+            String user = "un1raksiq8ohfxd1";
+            String password = "IJvLwWlFKFx5gOM38yYJ";
             objConnection = (Connection) DriverManager.getConnection(url, user, password);
             System.out.println("Properly connected to DB");
         } catch (ClassNotFoundException e) {

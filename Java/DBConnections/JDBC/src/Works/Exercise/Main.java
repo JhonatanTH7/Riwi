@@ -6,5 +6,6 @@ public class Main {
     public static void main(String[] args) {
         ConfigDB configDB = new ConfigDB();
         configDB.openConnection();
+        configDB.closeConnection();
     }
 }
