@@ -43,7 +43,27 @@ public class BookModel implements CRUD {
 
     @Override
     public boolean update(Object object) {
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        boolean isUpdated = false;
+        Book objBook = (Book) object;
+        String sql = "UPDATE books SET title=?, publicationYear=?, price=?, idAuthor=? WHERE books.id=?;";
+        Connection objConnection = ConfigDB.openConnection();
+        try {
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql);
+            objPreparedStatement.setString(1, objBook.getTitle());
+            objPreparedStatement.setInt(2, objBook.getPublicationYear());
+            objPreparedStatement.setDouble(3, objBook.getPrice());
+            objPreparedStatement.setInt(4, objBook.getIdAuthor());
+            objPreparedStatement.setInt(5, objBook.getId());
+
+            int rowsAffected = objPreparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                isUpdated = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        ConfigDB.closeConnection();
+        return isUpdated;
     }
 
     @Override

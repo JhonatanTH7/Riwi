@@ -32,6 +32,39 @@ public class BookController {
         JOptionPane.showMessageDialog(null, objBook.toString());
     }
 
+    public void update() {
+        AuthorController objAuthorController = new AuthorController();
+        String list = this.getAll(this.objBookModel.findAll());
+        int idUpdate = Integer
+                .parseInt(JOptionPane.showInputDialog(null, list + "\n Enter the ID of the Book you want to update"));
+        Book objBookUpdate = (Book) this.objBookModel.findById(idUpdate);
+        if (objBookUpdate == null) {
+            JOptionPane.showMessageDialog(null, "Book not found");
+        } else {
+            String title = JOptionPane.showInputDialog(null, "Enter the new title", objBookUpdate.getTitle());
+            int publicationYear = Integer
+                    .parseInt(JOptionPane.showInputDialog(null, "Enter the year that the book was published",
+                            objBookUpdate.getPublicationYear()));
+            double price = Double
+                    .parseDouble(
+                            JOptionPane.showInputDialog(null, "Enter the price of the book", objBookUpdate.getPrice()));
+            int idAuthor = Integer.parseInt(JOptionPane.showInputDialog(null, objAuthorController.getAllStringList() +
+                    "\nEnter the ID of the author that published the book, if he is not registered go to the authors menu and register him",
+                    objBookUpdate.getIdAuthor()));
+
+            objBookUpdate.setTitle(title);
+            objBookUpdate.setPrice(price);
+            objBookUpdate.setIdAuthor(idAuthor);
+            objBookUpdate.setPublicationYear(publicationYear);
+            if (this.objBookModel.update(objBookUpdate)) {
+                JOptionPane.showMessageDialog(null, "Book Updated successfully");
+            } else {
+                JOptionPane.showMessageDialog(null, "Couldn't update the Book");
+            }
+        }
+
+    }
+
     public void delete() {
         int confirm;
         int idDelete = Integer.parseInt(JOptionPane.showInputDialog(null,

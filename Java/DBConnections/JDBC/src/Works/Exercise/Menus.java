@@ -82,6 +82,9 @@ public class Menus {
                 case "2":
                     objBookController.create();
                     break;
+                case "3":
+                    objBookController.update();
+                    break;
                 case "4":
                     objBookController.delete();
                     break;

@@ -43,7 +43,7 @@ public class AuthorModel implements CRUD {
     public boolean update(Object object) {
         Connection objConnection = ConfigDB.openConnection();
         Author objAuthor = (Author) object;
-        String sql = "UPDATE authors SET name=?,nationality=? WHERE id=?;";
+        String sql = "UPDATE authors SET name=?,nationality=? WHERE authors.id=?;";
         boolean isUpdated = false;
         try {
             PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql);
@@ -53,10 +53,7 @@ public class AuthorModel implements CRUD {
 
             int rowsAffected = objPreparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Updated successfully");
                 isUpdated = true;
-            } else {
-                JOptionPane.showMessageDialog(null, "Couldn't update the Author");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());

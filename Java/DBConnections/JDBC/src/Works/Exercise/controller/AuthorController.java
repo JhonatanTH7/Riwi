@@ -37,7 +37,11 @@ public class AuthorController {
                     objAuthorUpdate.getNationality());
             objAuthorUpdate.setName(name);
             objAuthorUpdate.setNationality(nationality);
-            this.objAuthorModel.update(objAuthorUpdate);
+            if (this.objAuthorModel.update(objAuthorUpdate)) {
+                JOptionPane.showMessageDialog(null, "Author Updated successfully");
+            } else {
+                JOptionPane.showMessageDialog(null, "Couldn't update the Author");
+            }
         }
     }
 
