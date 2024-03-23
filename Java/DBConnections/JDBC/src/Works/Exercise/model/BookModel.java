@@ -137,8 +137,18 @@ public class BookModel implements CRUD {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-
         ConfigDB.closeConnection();
         return booksList;
     }
+
+    // public ArrayList<Book> findByAuthorsId(int idAuthor) {
+    // ArrayList<Book> booksList = new ArrayList<>();
+    // Book objBook = new Book();
+    // String sql = "SELECT * FROM books WHERE books.idAuthor = ?;";
+    // try {
+    // } catch (SQLException e) {
+    // JOptionPane.showMessageDialog(null, e.getMessage());
+    // }
+    // return booksList;
+    // }
 }
