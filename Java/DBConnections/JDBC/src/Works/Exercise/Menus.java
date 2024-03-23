@@ -19,7 +19,8 @@ public class Menus {
                     3. Update Author
                     4. Delete Author
                     5. Get Author by ID
-                    6. Exit
+                    6. Get Books by Author ID
+                    7. Exit
 
                     Choose an option:
 
@@ -41,13 +42,17 @@ public class Menus {
                     authorController.getById();
                     break;
                 case "6":
+                    BookController objBookController = new BookController();
+                    objBookController.getByAuthorsId();
+                    break;
+                case "7":
                     JOptionPane.showMessageDialog(null, "Going back to main menu");
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Not a valid option");
                     break;
             }
-        } while (!option2.equals("6"));
+        } while (!option2.equals("7"));
     }
 
     public void bookMenu() {
@@ -63,7 +68,7 @@ public class Menus {
                     3. Update Book
                     4. Delete Book
                     5. Get Book by ID
-                    6. Get Book by Author ID
+                    6. Get Books by Author ID
                     7. Get Book by Title
                     8. Exit
 
@@ -82,6 +87,9 @@ public class Menus {
                     break;
                 case "5":
                     objBookController.getById();
+                    break;
+                case "6":
+                    objBookController.getByAuthorsId();
                     break;
                 case "7":
                     objBookController.getByName();

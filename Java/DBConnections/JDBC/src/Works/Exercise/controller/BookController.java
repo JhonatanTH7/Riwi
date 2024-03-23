@@ -1,10 +1,11 @@
 package Works.Exercise.controller;
 
+import Works.Exercise.entity.Author;
 import Works.Exercise.entity.Book;
+import Works.Exercise.model.AuthorModel;
 import Works.Exercise.model.BookModel;
 
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BookController {
@@ -56,7 +57,8 @@ public class BookController {
         int idSearched = Integer
                 .parseInt(JOptionPane.showInputDialog(null, "Enter the ID of the Book you are searching for"));
         Book objBook = (Book) this.objBookModel.findById(idSearched);
-        String results = "                                         ======= Results =======                                         \n";
+        String results = "                                         ====== Results ======                                         \n\n"
+                + "              Book with ID: " + idSearched + "\n";
         if (objBook == null) {
             results += "Book not found";
         } else {
@@ -69,16 +71,37 @@ public class BookController {
 
     public void getByName() {
         String nameSearched = JOptionPane.showInputDialog(null, "Enter the title of the Book you want to search for");
-        ArrayList<Book> listBooksSearched = this.objBookModel.findByName(nameSearched);
-
-        String results = "                                         ====== Results ======                                         \n\n";
+        List<Object> listBooksSearched = this.objBookModel.findByName(nameSearched);
+        String results = "                                         ====== Results ======                                         \n\n"
+                + "              Filtered by: " + nameSearched + "\n";
         if (!listBooksSearched.isEmpty()) {
-            for (Book objBook : listBooksSearched)
-                results += "- ID: " + objBook.getId() + " Title: " + objBook.getTitle() + " Publication year: "
-                        + objBook.getPublicationYear() + " Price: " + objBook.getPrice() + " ID Author: "
-                        + objBook.getIdAuthor() + "\n";
+            results += this.getAll(listBooksSearched);
         } else {
             results += "- There is not a Book with the name: " + nameSearched;
+        }
+        JOptionPane.showMessageDialog(null, results);
+    }
+
+    public void getByAuthorsId() {
+        AuthorController objAuthorController = new AuthorController();
+        AuthorModel objAuthorModel = new AuthorModel();
+
+        int idAuthorsSearched = Integer
+                .parseInt(JOptionPane.showInputDialog(null, objAuthorController.getAllStringList() +
+                        "\nEnter the id of the author you want to see the published books"));
+        Author objAuthor = (Author) objAuthorModel.findById(idAuthorsSearched);
+        String results = "                                         ====== Results ======                                         \n\n"
+                + "              Author ID: " + idAuthorsSearched;
+        if (objAuthor != null) {
+            List<Object> listBooksSearched = this.objBookModel.findByAuthorsId(idAuthorsSearched);
+            results += " - " + objAuthor.getName() + "\n";
+            if (!listBooksSearched.isEmpty()) {
+                results += this.getAll(listBooksSearched);
+            } else {
+                results += "- This Author hasn't published any book yet";
+            }
+        } else {
+            results += "\n- There is not an Author with the ID: " + idAuthorsSearched;
         }
         JOptionPane.showMessageDialog(null, results);
     }
@@ -89,11 +112,11 @@ public class BookController {
     }
 
     public String getAll(List<Object> objectsList) {
-        String list = "                                         ==== Books List ====                                         \n";
+        String list = "                                         ====== Books List ======                                         \n";
         for (Object obj : objectsList) {
             Book objBook = (Book) obj;
             list += "- ID: " + objBook.getId() + " Title: " + objBook.getTitle() + " Publication year: "
-                    + objBook.getPublicationYear() + " Price: " + objBook.getPrice() + " ID Author: "
+                    + objBook.getPublicationYear() + " Price: " + objBook.getPrice() + " AuthorID: "
                     + objBook.getIdAuthor() + "\n";
         }
         return list;
