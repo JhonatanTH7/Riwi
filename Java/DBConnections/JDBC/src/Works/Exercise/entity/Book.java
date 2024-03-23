@@ -1,7 +1,5 @@
 package Works.Exercise.entity;
 
-import java.util.Date;
-
 public class Book {
     private int id;
     private String title;

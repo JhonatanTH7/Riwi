@@ -15,11 +15,14 @@ public class BookController {
     }
 
     public void create() {
+        AuthorController objAuthorController = new AuthorController();
         Book objBook = new Book();
         String title = JOptionPane.showInputDialog(null, "Enter the title of the book");
-        int publicationYear = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the year that the book was published"));
+        int publicationYear = Integer
+                .parseInt(JOptionPane.showInputDialog(null, "Enter the year that the book was published"));
         double price = Double.parseDouble(JOptionPane.showInputDialog(null, "Enter the price of the book"));
-        int idAuthor = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the ID of the author that published the book, if he is not registered go to the authors menu and register him"));
+        int idAuthor = Integer.parseInt(JOptionPane.showInputDialog(null, objAuthorController.getAllStringList() +
+                "\nEnter the ID of the author that published the book, if he is not registered go to the authors menu and register him"));
         objBook.setTitle(title);
         objBook.setPublicationYear(publicationYear);
         objBook.setPrice(price);
@@ -35,7 +38,9 @@ public class BookController {
         String results = "           ====== Results ======\n\n";
         if (listBooksSearched != null) {
             for (Book objBook : listBooksSearched)
-                results += "- ID: " + objBook.getId() + " Title: " + objBook.getTitle() + " Publication year: " + objBook.getPublicationYear() + " Price: " + objBook.getPrice() + " ID Author: " + objBook.getIdAuthor() + "\n";
+                results += "- ID: " + objBook.getId() + " Title: " + objBook.getTitle() + " Publication year: "
+                        + objBook.getPublicationYear() + " Price: " + objBook.getPrice() + " ID Author: "
+                        + objBook.getIdAuthor() + "\n";
         } else {
             results += "- There is not a Book with the name: " + nameSearched;
         }
@@ -51,7 +56,9 @@ public class BookController {
         String list = "                             ==== Books List ==== \n";
         for (Object obj : objectsList) {
             Book objBook = (Book) obj;
-            list += "- ID: " + objBook.getId() + " Title: " + objBook.getTitle() + " Publication year: " + objBook.getPublicationYear() + " Price: " + objBook.getPrice() + " ID Author: " + objBook.getIdAuthor() + "\n";
+            list += "- ID: " + objBook.getId() + " Title: " + objBook.getTitle() + " Publication year: "
+                    + objBook.getPublicationYear() + " Price: " + objBook.getPrice() + " ID Author: "
+                    + objBook.getIdAuthor() + "\n";
         }
         return list;
     }

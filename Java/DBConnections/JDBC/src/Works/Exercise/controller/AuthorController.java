@@ -26,13 +26,15 @@ public class AuthorController {
 
     public void update() {
         String list = this.getAll(this.objAuthorModel.findAll());
-        int idUpdate = Integer.parseInt(JOptionPane.showInputDialog(null, list + "\n Enter the ID of the Author you want to update"));
+        int idUpdate = Integer
+                .parseInt(JOptionPane.showInputDialog(null, list + "\n Enter the ID of the Author you want to update"));
         Author objAuthorUpdate = (Author) this.objAuthorModel.findById(idUpdate);
         if (objAuthorUpdate == null) {
             JOptionPane.showMessageDialog(null, "Author not found");
         } else {
             String name = JOptionPane.showInputDialog(null, "Enter the new name", objAuthorUpdate.getName());
-            String nationality = JOptionPane.showInputDialog(null, "Enter the new Nationality", objAuthorUpdate.getNationality());
+            String nationality = JOptionPane.showInputDialog(null, "Enter the new Nationality",
+                    objAuthorUpdate.getNationality());
             objAuthorUpdate.setName(name);
             objAuthorUpdate.setNationality(nationality);
             this.objAuthorModel.update(objAuthorUpdate);
@@ -42,12 +44,14 @@ public class AuthorController {
     public void delete() {
         String list = this.getAll(this.objAuthorModel.findAll());
         int confirm;
-        int idDelete = Integer.parseInt(JOptionPane.showInputDialog(null, list + "\n Enter the ID of the Author you want to delete: "));
+        int idDelete = Integer.parseInt(
+                JOptionPane.showInputDialog(null, list + "\n Enter the ID of the Author you want to delete: "));
         Author objAuthorDelete = (Author) this.objAuthorModel.findById(idDelete);
         if (objAuthorDelete == null) {
             JOptionPane.showMessageDialog(null, "Author not found");
         } else {
-            confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Author: " + objAuthorDelete.getName());
+            confirm = JOptionPane.showConfirmDialog(null,
+                    "Are you sure you want to delete the Author: " + objAuthorDelete.getName());
             if (confirm == 0) {
                 this.objAuthorModel.delete(objAuthorDelete);
             } else {
@@ -57,12 +61,14 @@ public class AuthorController {
     }
 
     public void getById() {
-        int idSearched = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the ID of the Author you are searching for"));
+        int idSearched = Integer
+                .parseInt(JOptionPane.showInputDialog(null, "Enter the ID of the Author you are searching for"));
         Author objAuthor = (Author) this.objAuthorModel.findById(idSearched);
         if (objAuthor == null) {
             JOptionPane.showMessageDialog(null, "Author not found");
         } else {
-            JOptionPane.showMessageDialog(null, "Author with ID-> " + idSearched + " = Name: " + objAuthor.getName() + " Nationality: " + objAuthor.getNationality());
+            JOptionPane.showMessageDialog(null, "Author with ID-> " + idSearched + " = Name: " + objAuthor.getName()
+                    + " Nationality: " + objAuthor.getNationality());
         }
     }
 
@@ -74,12 +80,15 @@ public class AuthorController {
     public String getAll(List<Object> objectsList) {
         String list = "                           ==== Authors List ==== \n";
         for (Object obj : objectsList) {
-            // Casteamos el tipo Object a tipo Coder
             Author objAuthor = (Author) obj;
-            // Concatenamos la info
             list += "- ID: " + objAuthor.getId() + " Name: " + objAuthor.getName() + " Nationality: "
                     + objAuthor.getNationality() + "\n";
         }
+        return list;
+    }
+
+    public String getAllStringList() {
+        String list = this.getAll(this.objAuthorModel.findAll());
         return list;
     }
 }
