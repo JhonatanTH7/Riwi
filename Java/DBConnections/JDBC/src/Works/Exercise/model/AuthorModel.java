@@ -74,8 +74,6 @@ public class AuthorModel implements CRUD {
             int rowsAffected = objPreparedStatement.executeUpdate();
             if (rowsAffected > 0) {
                 isDeleted = true;
-            } else {
-                JOptionPane.showMessageDialog(null, "Couldn't delete the Author");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());

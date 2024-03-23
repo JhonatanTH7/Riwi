@@ -55,10 +55,13 @@ public class AuthorController {
             JOptionPane.showMessageDialog(null, "Author not found");
         } else {
             confirm = JOptionPane.showConfirmDialog(null,
-                    "Are you sure you want to delete the Author: " + objAuthorDelete.getName());
+                    "Are you sure you want to delete the Author, this will delete the Books that the Author has published too: "
+                            + objAuthorDelete.getName());
             if (confirm == 0) {
                 if (this.objAuthorModel.delete(objAuthorDelete)) {
-                    JOptionPane.showMessageDialog(null, "Author deleted successfully");
+                    JOptionPane.showMessageDialog(null, "Author and the Books published by him deleted successfully");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Couldn't delete the Author");
                 }
 
             } else {
