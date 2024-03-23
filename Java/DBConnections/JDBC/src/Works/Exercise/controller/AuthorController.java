@@ -59,7 +59,8 @@ public class AuthorController {
                             + "== ,this will delete the Books that the Author has published too");
             if (confirm == 0) {
                 if (this.objAuthorModel.delete(objAuthorDelete)) {
-                    JOptionPane.showMessageDialog(null, "Author and the Books published by him deleted successfully");
+                    JOptionPane.showMessageDialog(null,
+                            "Author and the Books published by him/her deleted successfully");
                 } else {
                     JOptionPane.showMessageDialog(null, "Couldn't delete the Author");
                 }
