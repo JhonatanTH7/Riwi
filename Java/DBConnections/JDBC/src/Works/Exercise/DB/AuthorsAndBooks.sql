@@ -11,7 +11,7 @@ CREATE TABLE books (
     price DOUBLE NOT NULL,
     idAuthor INT NOT NULL,
     FOREIGN KEY (idAuthor)
-        REFERENCES authors (id)
+        REFERENCES authors (id) ON DELETE CASCADE
 );
 
 INSERT INTO authors (name, nationality) VALUES
