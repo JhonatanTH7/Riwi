@@ -31,11 +31,47 @@ public class BookController {
         JOptionPane.showMessageDialog(null, objBook.toString());
     }
 
+    public void delete() {
+        int confirm;
+        int idDelete = Integer.parseInt(JOptionPane.showInputDialog(null,
+                getAll(this.objBookModel.findAll()) + "\n Enter the ID of the book you want to delete"));
+        Book objBookDelete = (Book) this.objBookModel.findById(idDelete);
+
+        if (objBookDelete == null) {
+            JOptionPane.showMessageDialog(null, "Book not found");
+        } else {
+            confirm = JOptionPane.showConfirmDialog(null,
+                    "Are you sure you want to delete the Book: " + objBookDelete.getTitle());
+            if (confirm == 0) {
+                if (this.objBookModel.delete(objBookDelete)) {
+                    JOptionPane.showMessageDialog(null, "Book deleted successfully");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No Book was deleted");
+            }
+        }
+    }
+
+    public void getById() {
+        int idSearched = Integer
+                .parseInt(JOptionPane.showInputDialog(null, "Enter the ID of the Book you are searching for"));
+        Book objBook = (Book) this.objBookModel.findById(idSearched);
+        String results = "                                         ======= Results =======\n";
+        if (objBook == null) {
+            results += "Book not found";
+        } else {
+            results += "- ID: " + objBook.getId() + " Title: " + objBook.getTitle() + " Publication year: "
+                    + objBook.getPublicationYear() + " Price: " + objBook.getPrice() + " Author: "
+                    + objBook.getIdAuthor() + "\n";
+        }
+        JOptionPane.showMessageDialog(null, results);
+    }
+
     public void getByName() {
         String nameSearched = JOptionPane.showInputDialog(null, "Enter the title of the Book you want to search for");
         ArrayList<Book> listBooksSearched = this.objBookModel.findByName(nameSearched);
 
-        String results = "           ====== Results ======\n\n";
+        String results = "                                         ====== Results ======\n\n";
         if (listBooksSearched != null) {
             for (Book objBook : listBooksSearched)
                 results += "- ID: " + objBook.getId() + " Title: " + objBook.getTitle() + " Publication year: "
@@ -53,7 +89,7 @@ public class BookController {
     }
 
     public String getAll(List<Object> objectsList) {
-        String list = "                             ==== Books List ==== \n";
+        String list = "                                         ==== Books List ==== \n";
         for (Object obj : objectsList) {
             Book objBook = (Book) obj;
             list += "- ID: " + objBook.getId() + " Title: " + objBook.getTitle() + " Publication year: "

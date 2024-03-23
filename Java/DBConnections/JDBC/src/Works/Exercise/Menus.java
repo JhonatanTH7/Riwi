@@ -63,7 +63,7 @@ public class Menus {
                     3. Update Book
                     4. Delete Book
                     5. Get Book by ID
-                    6. Get Book by Author
+                    6. Get Book by Author ID
                     7. Get Book by Title
                     8. Exit
 
@@ -76,6 +76,12 @@ public class Menus {
                     break;
                 case "2":
                     objBookController.create();
+                    break;
+                case "4":
+                    objBookController.delete();
+                    break;
+                case "5":
+                    objBookController.getById();
                     break;
                 case "7":
                     objBookController.getByName();

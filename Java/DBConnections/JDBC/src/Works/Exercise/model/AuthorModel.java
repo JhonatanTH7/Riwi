@@ -21,7 +21,7 @@ public class AuthorModel implements CRUD {
         Author objAuthor = (Author) object;
         String sql = "INSERT INTO authors(name,nationality)VALUES(?,?);";
         try {
-            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql,
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql,
                     PreparedStatement.RETURN_GENERATED_KEYS);
             objPreparedStatement.setString(1, objAuthor.getName());
             objPreparedStatement.setString(2, objAuthor.getNationality());
@@ -72,11 +72,10 @@ public class AuthorModel implements CRUD {
         String sql = "DELETE FROM authors WHERE authors.id = ?;";
         boolean isDeleted = false;
         try {
-            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql);
             objPreparedStatement.setInt(1, objAuthor.getId());
             int rowsAffected = objPreparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Author deleted successfully");
                 isDeleted = true;
             } else {
                 JOptionPane.showMessageDialog(null, "Couldn't delete the Author");
@@ -116,7 +115,7 @@ public class AuthorModel implements CRUD {
         Connection objConnection = ConfigDB.openConnection();
         String sql = "SELECT * FROM authors WHERE authors.id = ?;";
         try {
-            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql);
             objPreparedStatement.setInt(1, id);
             ResultSet objResultSet = objPreparedStatement.executeQuery();
             while (objResultSet.next()) {

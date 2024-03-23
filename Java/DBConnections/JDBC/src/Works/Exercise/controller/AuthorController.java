@@ -53,7 +53,10 @@ public class AuthorController {
             confirm = JOptionPane.showConfirmDialog(null,
                     "Are you sure you want to delete the Author: " + objAuthorDelete.getName());
             if (confirm == 0) {
-                this.objAuthorModel.delete(objAuthorDelete);
+                if (this.objAuthorModel.delete(objAuthorDelete)) {
+                    JOptionPane.showMessageDialog(null, "Author deleted successfully");
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "No Author was deleted");
             }

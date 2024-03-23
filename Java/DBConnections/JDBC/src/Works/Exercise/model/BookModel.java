@@ -21,7 +21,8 @@ public class BookModel implements CRUD {
         Book objBook = (Book) object;
         String sql = "INSERT INTO books(title, publicationYear, price, idAuthor)VALUES(?,?,?,?);";
         try {
-            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql,
+                    PreparedStatement.RETURN_GENERATED_KEYS);
             objPreparedStatement.setString(1, objBook.getTitle());
             objPreparedStatement.setInt(2, objBook.getPublicationYear());
             objPreparedStatement.setDouble(3, objBook.getPrice());
@@ -47,7 +48,24 @@ public class BookModel implements CRUD {
 
     @Override
     public boolean delete(Object object) {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        Connection objConnection = ConfigDB.openConnection();
+        Book objBook = (Book) object;
+        String sql = "DELETE FROM books WHERE books.id = ?;";
+        boolean isDeleted = false;
+        try {
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql);
+            objPreparedStatement.setInt(1, objBook.getId());
+            int rowsAffected = objPreparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                isDeleted = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Couldn't delete the book");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        ConfigDB.closeConnection();
+        return isDeleted;
     }
 
     @Override
@@ -76,7 +94,26 @@ public class BookModel implements CRUD {
 
     @Override
     public Object findById(int id) {
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        Book objBook = null;
+        String sql = "SELECT * FROM books WHERE books.id = ?;";
+        Connection objConnection = ConfigDB.openConnection();
+        try {
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql);
+            objPreparedStatement.setInt(1, id);
+            ResultSet objResultSet = objPreparedStatement.executeQuery();
+            while (objResultSet.next()) {
+                objBook = new Book();
+                objBook.setId(objResultSet.getInt("id"));
+                objBook.setIdAuthor(objResultSet.getInt("idAuthor"));
+                objBook.setPublicationYear(objResultSet.getInt("publicationYear"));
+                objBook.setTitle(objResultSet.getString("title"));
+                objBook.setPrice(objResultSet.getDouble("price"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        ConfigDB.closeConnection();
+        return objBook;
     }
 
     public ArrayList<Book> findByName(String name) {
@@ -85,7 +122,7 @@ public class BookModel implements CRUD {
         String sql = "SELECT * FROM books WHERE books.title LIKE ?;";
         ArrayList<Book> booksList = new ArrayList<>();
         try {
-            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+            PreparedStatement objPreparedStatement = (PreparedStatement) objConnection.prepareStatement(sql);
             objPreparedStatement.setString(1, "%" + name + "%");
             ResultSet objResultSet = objPreparedStatement.executeQuery();
             while (objResultSet.next()) {
