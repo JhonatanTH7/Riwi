@@ -2,7 +2,7 @@
 CREATE TABLE specialties (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(40) NOT NULL,
-    description VARCHAR(150) NOT NULL
+    description VARCHAR(500) NOT NULL
 );
 
 CREATE TABLE physicians (
@@ -10,7 +10,7 @@ CREATE TABLE physicians (
     name VARCHAR(40) NOT NULL,
     lastName VARCHAR(40) NOT NULL,
     idSpecialty INT NOT NULL,
-    FOREIGN KEY (idSpecialty)
+    CONSTRAINT fk_idSpecialty FOREIGN KEY (idSpecialty)
         REFERENCES specialties (id)
         ON DELETE CASCADE
 );
@@ -30,10 +30,10 @@ CREATE TABLE appointments (
     appointmentDate DATE NOT NULL,
     appointmentTime TIME NOT NULL,
     reason VARCHAR(40) NOT NULL,
-    FOREIGN KEY (idPatient)
+    CONSTRAINT fk_idPatient FOREIGN KEY (idPatient)
         REFERENCES patients (id)
         ON DELETE CASCADE,
-    FOREIGN KEY (idPhysician)
+    CONSTRAINT fk_idPhysician FOREIGN KEY (idPhysician)
         REFERENCES physicians (id)
 );
 
