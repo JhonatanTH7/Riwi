@@ -11,7 +11,8 @@ CREATE TABLE physicians (
     lastName VARCHAR(40) NOT NULL,
     idSpecialty INT NOT NULL,
     FOREIGN KEY (idSpecialty)
-        REFERENCES specialties (id) ON DELETE CASCADE
+        REFERENCES specialties (id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE patients (
