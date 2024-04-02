@@ -9,9 +9,9 @@ CREATE TABLE physicians (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(40) NOT NULL,
     lastName VARCHAR(40) NOT NULL,
-    idSpecialty INT,
+    idSpecialty INT NOT NULL,
     FOREIGN KEY (idSpecialty)
-        REFERENCES specialties (id)
+        REFERENCES specialties (id) ON DELETE CASCADE
 );
 
 CREATE TABLE patients (
