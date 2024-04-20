@@ -72,4 +72,6 @@ SELECT
 FROM
     appointments;
 
+SELECT physicians.*, specialties.name AS physicians_specialties FROM physicians INNER JOIN specialties ON physicians.idSpecialty = specialties.id WHERE specialties.name LIKE "%Pedia%";
+
 
